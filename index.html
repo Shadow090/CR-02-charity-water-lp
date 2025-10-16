@@ -3,45 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>charity: water - Give Hope</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Removed Font Awesome link as it's no longer needed for the logo -->
+    <style>
+        /* Custom font for a clean, modern look (Montserrat is used as a close substitute for Avenir and Proxima Nova) */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+        }
+        /* Specific CSS to ensure the image covers the full section height */
+        .hero-background {
+            /* UPDATED: Using the local file path provided by the user */
+            background-image: url('/img/Background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Gradient overlay to ensure text visibility on top of the image */
+        .image-overlay {
+            /* ADJUSTED: Gradient now fades from RIGHT to LEFT to support text positioned on the right side */
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        /* Responsive height for the hero section */
+        @media (min-width: 1024px) {
+            .h-hero-lg {
+                height: 90vh; /* Taller on desktop */
+            }
+        }
+    </style>
+    <script>
+        // Customizing Tailwind colors to match the brand visuals
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Brand blue: #003366
+                        'brand-blue': '#003366',
+                        // Brand yellow: #FFC907
+                        'brand-yellow': '#FFC907',
+                    },
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+<body class="bg-gray-100">
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+    <!-- 1. FIXED NAVBAR (HEADER) -->
+    <header class="fixed top-0 left-0 w-full bg-brand-blue shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo and Brand Name -->
+            <div class="flex items-center space-x-3">
+                <!-- Logo Image using the file path provided -->
+                <img src="img/water-can-transparent.png" alt="Charity Water Logo - Water Can" class="h-10 w-10">
+                <span class="text-3xl font-extrabold text-white tracking-wider">
+                    charity: <span class="text-brand-yellow font-normal">water</span>
+                </span>
+            </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+            <!-- Action Button -->
+            <a href="#donate" class="bg-brand-yellow text-brand-blue font-bold py-3 px-6 rounded-lg hover:bg-yellow-400 transition duration-300 shadow-xl">
+                Give Hope
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <!-- The padding-top is necessary to push the content down past the fixed header -->
+    <section id="hero" class="relative pt-20 h-screen lg:h-hero-lg hero-background">
+        <!-- Text overlay gradient for legibility -->
+        <div class="absolute inset-0 image-overlay"></div>
+
+        <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center">
+            <!-- Content Block (Headline and Subtext) -->
+            <!-- UPDATED: Added lg:ml-auto to push the block to the right, and lg:text-right for right alignment -->
+            <div class="relative z-10 w-full lg:w-1/2 pt-10 pb-16 lg:ml-auto lg:text-right">
+                
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-brand-yellow leading-tight mb-6">
+                    Give Water. <br>
+                    Give Life. <br>
+                    Give Hope.
+                </h1>
+
+                <!-- Subtext -->
+                <p class="text-lg sm:text-xl text-white max-w-md font-medium lg:ml-auto">
+                    Join a movement where 100% of your gift brings clean, safe water to those without it.
+                </p>
+
+            </div>
         </div>
     </section>
-
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    
+    <!-- Placeholder for the rest of the page content to ensure scrolling works -->
+    <section class="bg-white py-20 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">The Mission Starts Here</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+            This section would contain impact statistics, testimonials, or features showcasing your work.
+        </p>
     </section>
+
 </body>
 </html>
